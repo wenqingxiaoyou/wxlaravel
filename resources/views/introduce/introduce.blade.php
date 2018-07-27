@@ -62,6 +62,35 @@
 <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" charset="utf-8">
     wx.config(<?php echo $app->jssdk->buildConfig(array('onMenuShareQQ', 'onMenuShareWeibo'), true) ?>);
+
+    $.ajax({
+        url:'/getwxconfig',
+        success:function (res) {
+            wx.config({
+                // 配置信息, 即使不正确也能使用 wx.ready
+                debug: false,
+                appId: res.appId,
+                timestamp:res.timestamp,
+                nonceStr: res.nonceStr,
+                signature: res.signature,
+                jsApiList: res.jsApiList
+            });
+        }
+    });
+    wx.ready(function () {
+        wx.onMenuShareAppMessage({
+            title: '分享标题', // 分享标题
+            desc: '分享描述', // 分享描述
+            link: 'http://wx.yasong34.cn/introduce', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+            imgUrl: 'http://lfyilian.oss-cn-beijing.aliyuncs.com/wechat/html/introduce/images/share.png', // 分享图标
+            type: 'link', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+// 用户点击了分享后执行的回调函数
+                alert(1);
+            }
+        });
+    })
 </script>
 <script>
     var initModule = (function () {
@@ -154,15 +183,7 @@
             });
             document.addEventListener('touchstart',play,false);
 
-            wx.config({
-                // 配置信息, 即使不正确也能使用 wx.ready
-                debug: false,
-                appId: '',
-                timestamp:1,
-                nonceStr: '',
-                signature: '',
-                jsApiList: []
-            });
+
             wx.ready(function() {
                 audio.play();
                 $mControl.addClass('play');
