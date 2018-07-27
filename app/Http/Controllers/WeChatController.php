@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use Log;
 use EasyWeChat;
 
+
 class WeChatController extends Controller
 {
+
 
     /**
      * 处理微信的请求消息
