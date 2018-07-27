@@ -6,10 +6,8 @@ use Illuminate\Http\Request;
 use Log;
 use EasyWeChat;
 
-
 class WeChatController extends Controller
 {
-
 
     /**
      * 处理微信的请求消息
@@ -30,9 +28,10 @@ class WeChatController extends Controller
 
     function getConfig(){
         $app = app('wechat.official_account');
+
         return $app->jssdk->buildConfig([
             'onMenuShareAppMessage',
             'onMenuShareQQ',
-            'onMenuShareWeibo'], $debug = false, $beta = false, $json = true);
+            'onMenuShareWeibo'], $debug = true, $beta = false, $json = true);
     }
 }

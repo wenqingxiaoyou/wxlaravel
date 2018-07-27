@@ -65,6 +65,7 @@
    $.ajax({
        url:'/getwxconfig',
        success:function (res) {
+           console.log(res);
            wx.config({
                // 配置信息, 即使不正确也能使用 wx.ready
                debug: true,
@@ -77,6 +78,7 @@
        }
    });
     wx.ready(function () {
+        console.log(11111);
         wx.onMenuShareAppMessage({
             title: '分享标题', // 分享标题
             desc: '分享描述', // 分享描述
