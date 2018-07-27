@@ -65,7 +65,9 @@
    $.ajax({
        url:'/getwxconfig',
        success:function (res) {
+           var res = JSON.parse(res);
            console.log(res);
+
            wx.config({
                // 配置信息, 即使不正确也能使用 wx.ready
                debug: true,
