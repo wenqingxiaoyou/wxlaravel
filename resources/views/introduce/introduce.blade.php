@@ -62,20 +62,20 @@
 <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" charset="utf-8">
 
-    $.ajax({
-        url:'/getwxconfig',
-        success:function (res) {
-            wx.config({
-                // 配置信息, 即使不正确也能使用 wx.ready
-                debug: false,
-                appId: res.appId,
-                timestamp:res.timestamp,
-                nonceStr: res.nonceStr,
-                signature: res.signature,
-                jsApiList: res.jsApiList
-            });
-        }
-    });
+   $.ajax({
+       url:'/getwxconfig',
+       success:function (res) {
+           wx.config({
+               // 配置信息, 即使不正确也能使用 wx.ready
+               debug: false,
+               appId: res.appId,
+               timestamp:res.timestamp,
+               nonceStr: res.nonceStr,
+               signature: res.signature,
+               jsApiList: res.jsApiList
+           });
+       }
+   });
     wx.ready(function () {
         wx.onMenuShareAppMessage({
             title: '分享标题', // 分享标题
