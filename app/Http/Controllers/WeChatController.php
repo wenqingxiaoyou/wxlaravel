@@ -31,6 +31,6 @@ class WeChatController extends Controller
         return $app->jssdk->buildConfig([
             'onMenuShareAppMessage',
             'onMenuShareQQ',
-            'onMenuShareWeibo'], $debug = true, $beta = false, $json = true);
+            'onMenuShareWeibo'], $debug = false, $beta = false, $json = true);
     }
 }
