@@ -28,11 +28,11 @@ class WeChatController extends Controller
 
     function getConfig(){
         $app = app('wechat.official_account');
+
         $result = $app->jssdk->buildConfig([
             'onMenuShareAppMessage',
             'onMenuShareQQ',
             'onMenuShareWeibo'], $debug = true, $beta = false, $json = true);
-        $result['url'] = $app->jssdk->getUrl();
         return $result;
     }
 }
