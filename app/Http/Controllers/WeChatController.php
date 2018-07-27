@@ -28,7 +28,7 @@ class WeChatController extends Controller
 
     function getConfig(){
         $app = app('wechat.official_account');
-        $url = 'http://wx.yasong34.cn/introduce';
+        $url = $_SERVER['REQUEST_URI'];
         $app->jssdk->setUrl($url);
         $result = $app->jssdk->buildConfig([
             'onMenuShareAppMessage',
