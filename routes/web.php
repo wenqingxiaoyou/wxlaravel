@@ -11,7 +11,18 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/',function (){
     return view('welcome');
 });
+
+
+
+Route::get('/introduce','IntroduceController@show');
+
+
+
+
 Route::any('/wechat', 'WeChatController@serve');
+Route::any('/getwxconfig', 'WeChatController@getConfig');
+//
+//Route::get('/wxconfig','WXConfigController@getConfig');

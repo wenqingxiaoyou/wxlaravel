@@ -1,0 +1,209 @@
+body,html{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.top-arrow{
+    width: 0.78rem;
+    height: 0.7rem;
+    background: url(../images/top-arrow.png) no-repeat center center;
+    background-size: cover;
+    position: fixed;
+    bottom: 0.2rem;
+    left: 50%;
+    margin-left: -0.39rem;
+    z-index: 999;
+    -webkit-animation: topArrow 2.5s infinite ;
+    -o-animation: topArrow 2.5s infinite;
+    animation: topArrow 2.5s infinite;
+}
+#fullpage .section.active{
+    background-color: #FB9C28;
+
+}
+#fullpage .section .bg-top{
+    position: absolute;
+    width: 100%;
+    background: url("../images/bgup.png") repeat-y center center;
+    background-size:100% 0.05rem;
+    height: 50%;
+    top: 0;
+}
+#fullpage .section .bg-bottom{
+    position: absolute;
+    width: 100%;
+    background: url("../images/bgdown.png") repeat-y center center;
+    background-size:100% 0.05rem;
+    height: 50%;
+    bottom: 0;
+}
+#fullpage .s-inner{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+#fullpage .section,#fullpage .s-inner{
+
+    width: 100%;
+    height: 100%;
+    background: url('../images/bg.png');
+    background-size:0.05rem 0.05rem;
+}
+#fullpage .section:nth-child(1) .s-inner{
+    background: url("../images/section-1.png") no-repeat center center;
+    background-size: 100% auto;
+}
+#fullpage .section:nth-child(2) .s-inner{
+    background: url("../images/section-2.png") no-repeat center center;
+    background-size: 100% auto;
+}
+#fullpage .section:nth-child(3) .s-inner{
+    background: url("../images/section-3.png") no-repeat center center;
+    background-size: 100% auto;
+
+}
+#fullpage .section:nth-child(4) .s-inner{
+    background: url("../images/section-4.png") no-repeat center center;
+    background-size: 100% auto;
+
+}
+#fullpage .section:nth-child(5) .s-inner{
+    background: url("../images/section-5.png") no-repeat center center;
+    background-size: 100% auto;
+
+}
+#fullpage .section:nth-child(6) .s-inner{
+    background: url("../images/section-6.png") no-repeat center center;
+    background-size: 100% auto;
+}
+#fullpage .section .download{
+    width: 6.1rem;
+    height: 1rem;
+    background:url('../images/down.png') no-repeat center center;
+    background-size: cover;
+    position: absolute;
+    left: 0.7rem;
+    bottom: 1.5rem;
+    z-index: 88;
+}
+.m-icon{
+    width: 0.6rem;
+    height: 0.6rem;
+    position: fixed;
+    right: 0.2rem;
+    top: 0.2rem;
+    z-index: 999;
+}
+.m-icon.play{
+    background: url("../images/play.png") no-repeat center center;
+    background-size: cover;
+    -webkit-animation: rollCircle 4s linear infinite;
+    -o-animation: rollCircle 4s linear infinite;
+    animation: rollCircle 4s linear infinite;
+}
+.m-icon.pause{
+    background: url("../images/pause.png") no-repeat center center;
+    background-size: cover;
+}
+@keyframes topArrow {
+    0%{
+        bottom: 0.2rem;
+    }
+    50%{
+        bottom: 0.8rem;
+    }
+    100%{
+        bottom: 0.2rem;
+    }
+}
+@-webkit-keyframes topArrow {
+    0%{
+        bottom: 0.2rem;
+    }
+    50%{
+        bottom: 0.8rem;
+    }
+    100%{
+        bottom: 0.2rem;
+    }
+}
+@keyframes rollCircle {
+    0%{
+        -webkit-transform: rotateZ(0deg);
+        -moz-transform: rotateZ(0deg);
+        -ms-transform: rotateZ(0deg);
+        -o-transform: rotateZ(0deg);
+        transform: rotateZ(0deg);
+    }
+   
+    100%{
+        -webkit-transform: rotateZ(360deg);
+        -moz-transform: rotateZ(360deg);
+        -ms-transform: rotateZ(360deg);
+        -o-transform: rotateZ(360deg);
+        transform: rotateZ(360deg);
+    }
+}
+@-webkit-keyframes rollCircle {
+    0%{
+        -webkit-transform: rotateZ(0deg);
+        -moz-transform: rotateZ(0deg);
+        -ms-transform: rotateZ(0deg);
+        -o-transform: rotateZ(0deg);
+        transform: rotateZ(0deg);
+    }
+
+    100%{
+        -webkit-transform: rotateZ(360deg);
+        -moz-transform: rotateZ(360deg);
+        -ms-transform: rotateZ(360deg);
+        -o-transform: rotateZ(360deg);
+        transform: rotateZ(360deg);
+    }
+}
+
+.loading{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: table;
+    text-align: center;
+    background-color: #000;
+    z-index: 1000000000;
+    color: #ffffff;
+    background: url("../images/l-bg@2x.png") no-repeat center center;
+    background-size: cover;
+}
+.loading .cell-div{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 0.3rem;
+}
+.loading .cell-div .l-img{
+    display: inline-block;
+    width: 100%;
+    height: 3.46rem;
+    margin-top: -1.5rem;
+    background: url('../images/gif.gif') no-repeat center center;
+    background-size: 4.24rem 3.46rem;
+}
+.loading .line-wrap{
+    display: inline-block;
+    width: 3.1rem;
+    height: 3px;
+    margin-left: 0.04rem;
+    background-color: #E7C89E;
+}
+.loading .line{
+    width: 0;
+    height: 100%;
+    background-color: #E99019;
+}
+
+.loading.hide{
+    display: none;
+}

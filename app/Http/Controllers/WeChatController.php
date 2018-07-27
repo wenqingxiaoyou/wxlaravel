@@ -24,4 +24,9 @@ class WeChatController extends Controller
 
         return $app->server->serve();
     }
+
+    function getConfig(){
+        $app = app('wechat.official_account');
+
+    }
 }
