@@ -29,7 +29,7 @@ class WeChatController extends Controller
     function getConfig(){
         $app = app('wechat.official_account');
         $officialAccount = EasyWeChat::officialAccount(); // 公众号
-        var_dump($app->jssdk);
+
 
 
 
