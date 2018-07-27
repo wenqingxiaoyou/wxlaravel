@@ -67,7 +67,7 @@
        success:function (res) {
            wx.config({
                // 配置信息, 即使不正确也能使用 wx.ready
-               debug: false,
+               debug: true,
                appId: res.appId,
                timestamp:res.timestamp,
                nonceStr: res.nonceStr,
