@@ -61,17 +61,12 @@
 <audio loop="loop" src="./audio/music.mp3"  id="audio"></audio>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" charset="utf-8">
-
-    var ssss = 'tetet';
    $.ajax({
        url:'/getwxconfig',
        success:function (res) {
            var res = JSON.parse(res);
-           console.log(res);
-
            wx.config({
-               // 配置信息, 即使不正确也能使用 wx.ready
-               debug: true,
+               debug: false,
                appId: res.appId,
                timestamp:res.timestamp,
                nonceStr: res.nonceStr,
@@ -80,19 +75,46 @@
            });
        }
    });
+
+   var shareD = {
+       title:'欢迎来到益家村！',
+       desc:'平价购物，还有更多惊喜，你不进来看看么？',
+       link:'http://wx.yasong34.cn/introduce',
+       imgUrl: 'http://lfyilian.oss-cn-beijing.aliyuncs.com/wechat/html/introduce/images/share.png',
+       type:'link'
+   }
+
     wx.ready(function () {
-        console.log(11111);
-        wx.onMenuShareAppMessage({
-            title: '分享标题', // 分享标题
-            desc: '分享描述', // 分享描述
-            link: 'http://wx.yasong34.cn/introduce', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-            imgUrl: 'http://lfyilian.oss-cn-beijing.aliyuncs.com/wechat/html/introduce/images/share.png', // 分享图标
-            type: 'link', // 分享类型,music、video或link，不填默认为link
-            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-            success: function () {
-// 用户点击了分享后执行的回调函数
-                alert(1);
-            }
+        wx.onMenuShareAppMessage({ //分享给分享给朋友
+            title: shareD.title,
+            desc: shareD.desc,
+            link: shareD.link,
+            imgUrl: shareD.imgUrl,
+            type: shareD.link,
+            dataUrl: '',
+            success: function () {}
+        });
+        wx.onMenuShareTimeline({ //分享到朋友圈
+            title: shareD.title,
+            link: shareD.link,
+            imgUrl: shareD.imgUrl,
+            success: function () {}
+        });
+        wx.onMenuShareQQ({  //分享到QQ
+            title: shareD.title,
+            desc: shareD.desc,
+            link: shareD.link,
+            imgUrl: shareD.imgUrl,
+            success: function () {},
+            cancel: function () {}
+        });
+        wx.onMenuShareQZone({ //分享到qq空间
+            title: shareD.title,
+            desc: shareD.desc,
+            link: shareD.link,
+            imgUrl: shareD.imgUrl,
+            success: function () {},
+            cancel: function () {}
         });
     })
 </script>

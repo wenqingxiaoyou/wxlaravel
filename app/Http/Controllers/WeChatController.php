@@ -31,9 +31,11 @@ class WeChatController extends Controller
         $url = $_SERVER['HTTP_REFERER'];
         $app->jssdk->setUrl($url);
         $result = $app->jssdk->buildConfig([
-            'onMenuShareAppMessage',
-            'onMenuShareQQ',
-            'onMenuShareWeibo'], $debug = true, $beta = false, $json = true);
+            'onMenuShareAppMessage', //发送给朋友
+            'onMenuShareQQ',  //发送给QQ
+            'onMenuShareWeibo', //发送给微博
+            'onMenuShareTimeline',//分享给朋友圈
+        ], $debug = true, $beta = false, $json = true);
         return $result;
     }
 }
