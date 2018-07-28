@@ -98,6 +98,7 @@
             title: shareD.title,
             link: shareD.link,
             imgUrl: shareD.imgUrl,
+            desc: shareD.desc,
             success: function () {}
         });
         wx.onMenuShareQQ({  //分享到QQ
