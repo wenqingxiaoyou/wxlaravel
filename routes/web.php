@@ -15,7 +15,10 @@ Route::get('/',function (){
     return view('welcome');
 });
 
-
+Route::group(['middleware'=>['web']],function (){
+    Route::get('/users','UsersController@users');
+    Route::get('/users/{openId}','UsersController@user');
+});
 
 Route::get('/introduce','IntroduceController@show');
 
