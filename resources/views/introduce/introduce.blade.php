@@ -63,6 +63,9 @@
 <script type="text/javascript" charset="utf-8">
    $.ajax({
        url:'/getwxconfig',
+       data:{
+         url:window.location.href
+       },
        success:function (res) {
            var res = JSON.parse(res);
            wx.config({

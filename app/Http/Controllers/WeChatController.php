@@ -26,10 +26,10 @@ class WeChatController extends Controller
         return $app->server->serve();
     }
 
-    function getConfig(){
+    function getConfig(Request $request){
         $app = app('wechat.official_account');
-        $url = $_SERVER['HTTP_REFERER'];
-        $app->jssdk->setUrl($url);
+        //$url = $_SERVER['HTTP_REFERER']; //获取当前页面的url
+        $app->jssdk->setUrl($request->url);
         $result = $app->jssdk->buildConfig([
             'onMenuShareAppMessage', //发送给朋友
             'onMenuShareQQ',  //发送给QQ
